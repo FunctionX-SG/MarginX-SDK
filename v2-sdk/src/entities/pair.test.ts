@@ -1,4 +1,4 @@
-import { ChainId, Token, WETH9, Price, CurrencyAmount, currencyEquals } from '@fx-swap/sdk-core'
+import { ChainId, Token, WETH9, Price, CurrencyAmount } from '@marginx/sdk-core'
 import { InsufficientInputAmountError } from '../errors'
 import { computePairAddress, Pair } from './pair'
 
@@ -12,7 +12,7 @@ describe('computePairAddress', () => {
       tokenB
     })
 
-    expect(result).toEqual('0x63604194Bd055F00A4C9F777343d55b45Af5c6e2')
+    expect(result).toEqual('0x781846bfCAa05157F7bbdE8e4B3300BC8833E4f5')
   })
   it('should give same result regardless of token order', () => {
     const USDC = new Token(ChainId.FXCORE, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 18, 'USDC', 'USD Coin')
@@ -55,7 +55,7 @@ describe('Pair', () => {
 
   describe('#getAddress', () => {
     it('returns the correct address', () => {
-      expect(Pair.getAddress(USDC, DAI)).toEqual('0xf74792E07cEd6ee85E6c4AEDD1Ea03f17396E1BD')
+      expect(Pair.getAddress(USDC, DAI)).toEqual('0x9860319a321FDa14e91fB9A0a0918adBe29bFfE8')
     })
   })
 
@@ -238,7 +238,7 @@ describe('Pair', () => {
           CurrencyAmount.fromRawAmount(pair.liquidityToken, '1000'),
           false
         )
-        expect(currencyEquals(liquidityValue.currency, tokenA)).toBe(true)
+        expect(liquidityValue.currency.equals(tokenA)).toBe(true)
         expect(liquidityValue.quotient.toString()).toBe('1000')
       }
 
@@ -250,7 +250,7 @@ describe('Pair', () => {
           CurrencyAmount.fromRawAmount(pair.liquidityToken, '500'),
           false
         )
-        expect(currencyEquals(liquidityValue.currency, tokenA)).toBe(true)
+        expect(liquidityValue.currency.equals(tokenA)).toBe(true)
         expect(liquidityValue.quotient.toString()).toBe('500')
       }
 
@@ -262,7 +262,7 @@ describe('Pair', () => {
           CurrencyAmount.fromRawAmount(pair.liquidityToken, '1000'),
           false
         )
-        expect(currencyEquals(liquidityValue.currency, tokenB)).toBe(true)
+        expect(liquidityValue.currency.equals(tokenB)).toBe(true)
         expect(liquidityValue.quotient.toString()).toBe('1000')
       }
     })
@@ -279,7 +279,7 @@ describe('Pair', () => {
         true,
         '250000' // 500 ** 2
       )
-      expect(currencyEquals(liquidityValue.currency, tokenA)).toBe(true)
+      expect(liquidityValue.currency.equals(tokenA)).toBe(true)
       expect(liquidityValue.quotient.toString()).toBe('917') // ceiling(1000 - (500 * (1 / 6)))
     })
   })

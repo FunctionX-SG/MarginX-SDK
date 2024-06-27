@@ -1,6 +1,6 @@
 import JSBI from 'jsbi'
 import invariant from 'tiny-invariant'
-import { ChainId, WETH9 as _WETH9, TradeType, Token, CurrencyAmount } from '@fx-swap/sdk-core'
+import { ChainId, WETH9 as _WETH9, TradeType, Token, CurrencyAmount } from '@marginx/sdk-core'
 import { Pair, Route, Trade } from '../index'
 
 const ADDRESSES = [

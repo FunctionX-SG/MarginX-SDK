@@ -1,5 +1,5 @@
 {
-  "name": "@fx-swap/token-lists",
+  "name": "@marginx/token-lists",
   "license": "MIT",
   "version": "1.0.0-beta.7",
   "description": "📚 The Token Lists specification",
@@ -13,7 +13,7 @@
     "node": ">=10"
   },
   "repository": {
-    "url": "https://github.com/YP010/FXSwap-SDK/tree/main/token-lists",
+    "url": "https://github.com/FunctionX-SG/MarginX-SDK/tree/main/token-lists",
     "type": "git"
   },
   "scripts": {
@@ -36,6 +36,6 @@
     "typescript": "^3.9.5"
   },
   "keywords": [
-    "FXSwap"
+    "MarginX"
   ]
 }

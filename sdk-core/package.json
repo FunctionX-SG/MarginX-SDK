@@ -1,16 +1,16 @@
 {
-  "name": "@fx-swap/sdk-core",
+  "name": "@marginx/sdk-core",
   "license": "MIT",
   "version": "1.0.0-beta.7",
-  "description": "⚒️ An SDK for building applications on top of FX Swap",
+  "description": "⚒️ An SDK for building applications on top of MarginX",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/YP010/FXSwap-SDK/tree/main/sdk-core",
+  "repository": "https://github.com/FunctionX-SG/MarginX-SDK/tree/main/sdk-core",
   "keywords": [
-    "FXSwap"
+    "MarginX"
   ],
   "module": "dist/sdk-core.esm.js",
   "scripts": {
