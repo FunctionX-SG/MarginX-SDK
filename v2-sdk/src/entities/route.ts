@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { ChainId, Currency, Price, Token, wrappedCurrency } from '@fx-swap/sdk-core'
+import { ChainId, Currency, Price, Token } from '@marginx/sdk-core'
 
 import { Pair } from './pair'
 
@@ -17,10 +17,10 @@ export class Route<TInput extends Currency, TOutput extends Currency> {
       'CHAIN_IDS'
     )
 
-    const wrappedInput = wrappedCurrency(input, chainId)
+    const wrappedInput = input.wrapped
     invariant(pairs[0].involvesToken(wrappedInput), 'INPUT')
     invariant(
-      typeof output === 'undefined' || pairs[pairs.length - 1].involvesToken(wrappedCurrency(output, chainId)),
+      typeof output === 'undefined' || pairs[pairs.length - 1].involvesToken(output.wrapped),
       'OUTPUT'
     )
 

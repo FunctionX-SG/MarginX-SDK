@@ -2,9 +2,10 @@ import { Pair } from './pair'
 import { Route } from './route'
 import { Trade } from './trade'
 import JSBI from 'jsbi'
-import { ChainId, ETHER, CurrencyAmount, Percent, Token, TradeType, WETH9, Price } from '@fx-swap/sdk-core'
+import { ChainId, Ether, CurrencyAmount, Percent, Token, TradeType, WETH9, Price } from '@marginx/sdk-core'
 
 describe('Trade', () => {
+  const ETHER = Ether.onChain(ChainId.FXCORE)
   const token0 = new Token(ChainId.FXCORE, '0x0000000000000000000000000000000000000001', 18, 't0')
   const token1 = new Token(ChainId.FXCORE, '0x0000000000000000000000000000000000000002', 18, 't1')
   const token2 = new Token(ChainId.FXCORE, '0x0000000000000000000000000000000000000003', 18, 't2')
@@ -44,7 +45,7 @@ describe('Trade', () => {
   it('can be constructed with ETHER as input', () => {
     const trade = new Trade(
       new Route([pair_weth_0], ETHER, token0),
-      CurrencyAmount.ether(JSBI.BigInt(100)),
+      CurrencyAmount.ether(ChainId.FXCORE,JSBI.BigInt(100)),
       TradeType.EXACT_INPUT
     )
     expect(trade.inputAmount.currency).toEqual(ETHER)
@@ -63,7 +64,7 @@ describe('Trade', () => {
   it('can be constructed with ETHER as output', () => {
     const trade = new Trade(
       new Route([pair_weth_0], token0, ETHER),
-      CurrencyAmount.ether(JSBI.BigInt(100)),
+      CurrencyAmount.ether(ChainId.FXCORE,JSBI.BigInt(100)),
       TradeType.EXACT_OUTPUT
     )
     expect(trade.inputAmount.currency).toEqual(token0)
@@ -163,7 +164,7 @@ describe('Trade', () => {
     it('works for ETHER currency input', () => {
       const result = Trade.bestTradeExactIn(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
-        CurrencyAmount.ether(JSBI.BigInt(100)),
+        CurrencyAmount.ether(ChainId.FXCORE,JSBI.BigInt(100)),
         token3
       )
       expect(result).toHaveLength(2)
@@ -447,7 +448,7 @@ describe('Trade', () => {
       const result = Trade.bestTradeExactOut(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
         token3,
-        CurrencyAmount.ether(JSBI.BigInt(100))
+        CurrencyAmount.ether(ChainId.FXCORE,JSBI.BigInt(100))
       )
       expect(result).toHaveLength(2)
       expect(result[0].inputAmount.currency).toEqual(token3)

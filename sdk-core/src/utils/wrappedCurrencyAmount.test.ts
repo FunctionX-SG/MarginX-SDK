@@ -6,7 +6,7 @@ describe('#wrappedCurrencyAmount', () => {
   const token = new Token(ChainId.FXCORE, '0x0000000000000000000000000000000000000001', 18)
 
   it('wraps ether', () => {
-    expect(wrappedCurrencyAmount(CurrencyAmount.ether(10), ChainId.DHOBYGHAUT)).toEqual(
+    expect(wrappedCurrencyAmount(CurrencyAmount.ether(ChainId.DHOBYGHAUT, 10), ChainId.DHOBYGHAUT)).toEqual(
       CurrencyAmount.fromRawAmount(WETH9[ChainId.DHOBYGHAUT], 10)
     )
   })

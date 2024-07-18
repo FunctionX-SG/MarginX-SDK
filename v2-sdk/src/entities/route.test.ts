@@ -1,4 +1,4 @@
-import { Token, WETH9, ChainId, CurrencyAmount, ETHER } from '@fx-swap/sdk-core'
+import { Token, WETH9, ChainId, CurrencyAmount, ETHER } from '@marginx/sdk-core'
 import { Pair, Route } from './index'
 
 describe('Route', () => {

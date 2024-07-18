@@ -2,6 +2,7 @@ import invariant from 'tiny-invariant'
 import { ChainId } from '../constants'
 import { validateAndParseAddress } from '../utils/validateAndParseAddress'
 import { BaseCurrency } from './baseCurrency'
+import { Currency } from './currency'
 
 /**
  * Represents an ERC20 token with a unique address and some metadata.
@@ -14,7 +15,7 @@ export class Token extends BaseCurrency {
   public readonly address: string
 
   public constructor(chainId: ChainId | number, address: string, decimals: number, symbol?: string, name?: string) {
-    super(decimals, symbol, name)
+    super(chainId, decimals, symbol, name)
     this.chainId = chainId
     this.address = validateAndParseAddress(address)
   }
@@ -23,12 +24,8 @@ export class Token extends BaseCurrency {
    * Returns true if the two tokens are equivalent, i.e. have the same chainId and address.
    * @param other other token to compare
    */
-  public equals(other: Token): boolean {
-    // short circuit on reference equality
-    if (this === other) {
-      return true
-    }
-    return this.chainId === other.chainId && this.address === other.address
+  public equals(other: Currency): boolean {
+    return other.isToken && this.chainId === other.chainId && this.address.toLowerCase() === other.address.toLowerCase()
   }
 
   /**
@@ -41,6 +38,10 @@ export class Token extends BaseCurrency {
     invariant(this.chainId === other.chainId, 'CHAIN_IDS')
     invariant(this.address !== other.address, 'ADDRESSES')
     return this.address.toLowerCase() < other.address.toLowerCase()
+  }
+
+  public get wrapped(): Token {
+    return this
   }
 }
 
@@ -58,5 +59,19 @@ export const WETH9: { [chainId in ChainId]: Token } = {
     18,
     'FX',
     'Wrapped FX'
-  )
+  ),
+  [ChainId.ATHENS]: new Token(
+    ChainId.ATHENS,
+    '0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf',
+    18,
+    'ZETA',
+    'Wrapped ZETA'
+  ),
+  [ChainId.ZETACHAIN]: new Token(
+    ChainId.ZETACHAIN,
+    '0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf',
+    18,
+    'ZETA',
+    'Wrapped ZETA'
+  ),
 }

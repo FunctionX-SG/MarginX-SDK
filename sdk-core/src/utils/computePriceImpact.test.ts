@@ -11,7 +11,7 @@ describe('#computePriceImpact', () => {
 
   it('is correct for zero', () => {
     expect(
-      computePriceImpact(new Price(ETHER, t0, 10, 100), CurrencyAmount.ether(10), CurrencyAmount.fromRawAmount(t0, 100))
+      computePriceImpact(new Price(ETHER, t0, 10, 100), CurrencyAmount.ether(ChainId.FXCORE,10), CurrencyAmount.fromRawAmount(t0, 100))
     ).toEqual(new Percent(0, 10000))
   })
   it('is correct for half output', () => {

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "FXSwap Token List",
-  "description": "Schema for lists of tokens compatible with the FXSwap Interface",
+  "title": "MarginX Token List",
+  "description": "Schema for lists of tokens compatible with the MarginX Interface",
   "definitions": {
     "Version": {
       "type": "object",
