@@ -1036,18 +1036,6 @@
     "@ethersproject/constants" "^5.7.0"
     "@ethersproject/logger" "^5.7.0"
 
-"@fx-swap/sdk-core@^1.0.0-beta.7":
-  "integrity" "sha512-3ct4U4rkERLw4ut+RDGZVNYg4HhGNkuApokiM6Q/h2ufcVj2mozH7JNdV4DYgksisnNc+oW0pzbVvg20Z5LASQ=="
-  "resolved" "https://registry.npmjs.org/@fx-swap/sdk-core/-/sdk-core-1.0.0-beta.7.tgz"
-  "version" "1.0.0-beta.7"
-  dependencies:
-    "@ethersproject/address" "^5.0.2"
-    "big.js" "^5.2.2"
-    "decimal.js-light" "^2.5.0"
-    "jsbi" "^3.1.4"
-    "tiny-invariant" "^1.1.0"
-    "toformat" "^2.0.0"
-
 "@istanbuljs/load-nyc-config@^1.0.0":
   "integrity" "sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ=="
   "resolved" "https://registry.npmjs.org/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz"
@@ -1281,9 +1269,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@marginx/sdk-core@file:../sdk-core":
-  "resolved" "file:../sdk-core"
-  "version" "1.0.0-beta.7"
+"@marginx/sdk-core@^1.0.0":
+  "integrity" "sha512-Yjc39bFu+14Mk03Z08OF5lpICO25urwdc84oNBKdzC+08Darr4hW08xzDZoT1iH1y/T/5fuU5YNortkfeE5wNw=="
+  "resolved" "https://registry.npmjs.org/@marginx/sdk-core/-/sdk-core-1.0.0.tgz"
+  "version" "1.0.0"
   dependencies:
     "@ethersproject/address" "^5.0.2"
     "big.js" "^5.2.2"
