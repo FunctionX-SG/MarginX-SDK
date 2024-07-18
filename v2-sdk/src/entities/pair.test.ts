@@ -9,10 +9,11 @@ describe('computePairAddress', () => {
     const result = computePairAddress({
       factoryAddress: '0x1111111111111111111111111111111111111111',
       tokenA,
-      tokenB
+      tokenB,
+      chainId:ChainId.FXCORE
     })
 
-    expect(result).toEqual('0x781846bfCAa05157F7bbdE8e4B3300BC8833E4f5')
+    expect(result).toEqual('0x63604194Bd055F00A4C9F777343d55b45Af5c6e2')
   })
   it('should give same result regardless of token order', () => {
     const USDC = new Token(ChainId.FXCORE, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 18, 'USDC', 'USD Coin')
@@ -22,7 +23,8 @@ describe('computePairAddress', () => {
     const resultA = computePairAddress({
       factoryAddress: '0x1111111111111111111111111111111111111111',
       tokenA,
-      tokenB
+      tokenB,
+      chainId:ChainId.FXCORE
     })
 
     tokenA = DAI
@@ -30,7 +32,8 @@ describe('computePairAddress', () => {
     const resultB = computePairAddress({
       factoryAddress: '0x1111111111111111111111111111111111111111',
       tokenA,
-      tokenB
+      tokenB,
+      chainId:ChainId.FXCORE
     })
 
     expect(resultA).toEqual(resultB)
@@ -55,7 +58,7 @@ describe('Pair', () => {
 
   describe('#getAddress', () => {
     it('returns the correct address', () => {
-      expect(Pair.getAddress(USDC, DAI)).toEqual('0x9860319a321FDa14e91fB9A0a0918adBe29bFfE8')
+      expect(Pair.getAddress(USDC, DAI)).toEqual('0xf74792E07cEd6ee85E6c4AEDD1Ea03f17396E1BD')
     })
   })
 

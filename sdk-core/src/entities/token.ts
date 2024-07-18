@@ -66,5 +66,12 @@ export const WETH9: { [chainId in ChainId]: Token } = {
     18,
     'ZETA',
     'Wrapped ZETA'
-  )
+  ),
+  [ChainId.ZETACHAIN]: new Token(
+    ChainId.ZETACHAIN,
+    '0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf',
+    18,
+    'ZETA',
+    'Wrapped ZETA'
+  ),
 }

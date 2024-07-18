@@ -6,13 +6,15 @@ export type BigintIsh = JSBI | string | number
 export enum ChainId {
   DHOBYGHAUT = 90001,
   FXCORE = 530,
-  ATHENS = 7001
+  ATHENS = 7001,
+  ZETACHAIN = 7000
 }
 
 export const SUPPORTED_CHAINS = [
   ChainId.DHOBYGHAUT,
   ChainId.FXCORE,
-  ChainId.ATHENS
+  ChainId.ATHENS,
+  ChainId.ZETACHAIN
 ] as const
 export type SupportedChainsType = typeof SUPPORTED_CHAINS[number]
 
@@ -42,7 +44,8 @@ export type NativeMapType = { [chainId: number]: NativeCurrencyName }
 export const NativeMap: NativeMapType = {
   [ChainId.FXCORE]: NativeCurrencyName.FX,
   [ChainId.DHOBYGHAUT]: NativeCurrencyName.FX,
-  [ChainId.ATHENS]: NativeCurrencyName.ZETA
+  [ChainId.ATHENS]: NativeCurrencyName.ZETA,
+  [ChainId.ZETACHAIN]: NativeCurrencyName.ZETA,
 }
 
 type NativeToken = {decimal:number,name:string,symbol:string}
@@ -51,4 +54,5 @@ export const NativeTokenMap: NativeTokenMapType = {
   [ChainId.FXCORE]: {decimal:18,name:"Function X",symbol:"FX"},
   [ChainId.DHOBYGHAUT]: {decimal:18,name:"Function X",symbol:"FX"},
   [ChainId.ATHENS]: {decimal:18,name:"Zeta",symbol:"ZETA"},
+  [ChainId.ZETACHAIN]: {decimal:18,name:"Zeta",symbol:"ZETA"},
 }
