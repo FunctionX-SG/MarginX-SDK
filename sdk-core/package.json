@@ -1,7 +1,7 @@
 {
   "name": "@marginx/sdk-core",
   "license": "MIT",
-  "version": "1.0.0-beta.7",
+  "version": "1.0.0",
   "description": "⚒️ An SDK for building applications on top of MarginX",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -39,5 +39,9 @@
     "printWidth": 120,
     "semi": false,
     "singleQuote": true
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
