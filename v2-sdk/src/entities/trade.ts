@@ -9,10 +9,11 @@ import {
   sortedInsert,
   wrappedCurrency,
   TradeType,
-  wrappedCurrencyAmount
-} from '@fx-swap/sdk-core'
+  wrappedCurrencyAmount,
+  ZERO,
+  ONE
+} from '@marginx/sdk-core'
 import { computePriceImpact, Token } from '../../../sdk-core'
-import { ONE, ZERO } from '../constants'
 import invariant from 'tiny-invariant'
 
 import { Pair } from './pair'

@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Percent, TradeType, validateAndParseAddress } from '@fx-swap/sdk-core'
+import { Currency, CurrencyAmount, Percent, TradeType, validateAndParseAddress } from '@marginx/sdk-core'
 import { Trade } from './entities'
 import invariant from 'tiny-invariant'
 import { Token } from '../../sdk-core'

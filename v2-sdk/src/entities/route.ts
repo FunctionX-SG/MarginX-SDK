@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { ChainId, Currency, Price, Token, wrappedCurrency } from '@fx-swap/sdk-core'
+import { ChainId, Currency, Price, Token, wrappedCurrency } from '@marginx/sdk-core'
 
 import { Pair } from './pair'
 

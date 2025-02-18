@@ -1,10 +1,10 @@
-import { BigintIsh, ChainId, Price, sqrt, Token, CurrencyAmount } from '@fx-swap/sdk-core'
+import { BigintIsh, ChainId, Price, sqrt, Token, CurrencyAmount, ONE, ZERO } from '@marginx/sdk-core'
 import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
 import { pack, keccak256 } from '@ethersproject/solidity'
 import { getCreate2Address } from '@ethersproject/address'
 
-import { FACTORY_ADDRESS, INIT_CODE_HASH, MINIMUM_LIQUIDITY, FIVE, _997, _1000, ONE, ZERO } from '../constants'
+import { FACTORY_ADDRESS, INIT_CODE_HASH, MINIMUM_LIQUIDITY, FIVE, _997, _1000 } from '../constants'
 import { InsufficientReservesError, InsufficientInputAmountError } from '../errors'
 
 export const computePairAddress = ({
