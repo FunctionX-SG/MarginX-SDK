@@ -1,7 +1,7 @@
 import { BaseCurrency } from './baseCurrency'
 import { Currency } from './currency'
 import { Token, WETH9 } from './token'
-import { ChainId, NativeTokenMap } from '../constants'
+import { ChainId, ConnectedChainId, NativeTokenMap } from '../constants'
 import invariant from 'tiny-invariant'
 
 /**
@@ -15,7 +15,7 @@ export class Ether extends BaseCurrency {
    * Only called once by this class
    * @protected
    */
-  protected constructor(chainId: ChainId) {
+  protected constructor(chainId: ChainId | ConnectedChainId) {
     super(chainId, NativeTokenMap[chainId]?.decimal || 18, NativeTokenMap[chainId]?.symbol || 'FX', NativeTokenMap[chainId]?.name || 'Function X')
   }
 

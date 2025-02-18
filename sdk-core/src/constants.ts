@@ -10,6 +10,14 @@ export enum ChainId {
   ZETACHAIN = 7000
 }
 
+export enum ConnectedChainId {
+  ETHEREUM = 1,
+  BSC = 56,
+  POLYGON = 137,
+  BSCTEST = 97,
+  BASETEST = 84532,
+}
+
 export const SUPPORTED_CHAINS = [
   ChainId.DHOBYGHAUT,
   ChainId.FXCORE,
@@ -21,7 +29,10 @@ export type SupportedChainsType = typeof SUPPORTED_CHAINS[number]
 export enum NativeCurrencyName {
   // Strings match input for CLI
   FX = 'FX',
-  ZETA = 'ZETA'
+  ZETA = 'ZETA',
+  ETH = 'ETH',
+  MATIC = 'POL',
+  BNB = 'BNB'
 }
 
 export enum TradeType {
@@ -46,6 +57,11 @@ export const NativeMap: NativeMapType = {
   [ChainId.DHOBYGHAUT]: NativeCurrencyName.FX,
   [ChainId.ATHENS]: NativeCurrencyName.ZETA,
   [ChainId.ZETACHAIN]: NativeCurrencyName.ZETA,
+  [ConnectedChainId.ETHEREUM]: NativeCurrencyName.ETH,
+  [ConnectedChainId.BSC]: NativeCurrencyName.BNB,
+  [ConnectedChainId.POLYGON]: NativeCurrencyName.MATIC,
+  [ConnectedChainId.BSCTEST]: NativeCurrencyName.BNB,
+  [ConnectedChainId.BASETEST]: NativeCurrencyName.ETH
 }
 
 type NativeToken = {decimal:number,name:string,symbol:string}
@@ -55,4 +71,9 @@ export const NativeTokenMap: NativeTokenMapType = {
   [ChainId.DHOBYGHAUT]: {decimal:18,name:"Function X",symbol:"FX"},
   [ChainId.ATHENS]: {decimal:18,name:"Zeta",symbol:"ZETA"},
   [ChainId.ZETACHAIN]: {decimal:18,name:"Zeta",symbol:"ZETA"},
+  [ConnectedChainId.ETHEREUM]: {decimal:18,name:"Ethereum",symbol:"ETH"},
+  [ConnectedChainId.BSC]: {decimal:18,name:"BNB",symbol:"BNB"},
+  [ConnectedChainId.POLYGON]: {decimal:18,name:"Polygon",symbol:"POL"},
+  [ConnectedChainId.BSCTEST]: {decimal:18,name:"BNB",symbol:"BNB"},
+  [ConnectedChainId.BASETEST]: {decimal:18,name:'Ethereum',symbol:'ETH'}
 }

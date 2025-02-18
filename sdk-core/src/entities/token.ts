@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { ChainId } from '../constants'
+import { ChainId, ConnectedChainId } from '../constants'
 import { validateAndParseAddress } from '../utils/validateAndParseAddress'
 import { BaseCurrency } from './baseCurrency'
 import { Currency } from './currency'
@@ -45,7 +45,7 @@ export class Token extends BaseCurrency {
   }
 }
 
-export const WETH9: { [chainId in ChainId]: Token } = {
+export const WETH9: { [chainId in ChainId|ConnectedChainId]: Token } = {
   [ChainId.FXCORE]: new Token(
     ChainId.FXCORE,
     '0x80b5a32E4F032B2a058b4F29EC95EEfEEB87aDcd',
@@ -74,4 +74,39 @@ export const WETH9: { [chainId in ChainId]: Token } = {
     'ZETA',
     'Wrapped ZETA'
   ),
+  [ConnectedChainId.ETHEREUM]: new Token(
+    ConnectedChainId.ETHEREUM,
+    '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+    18,
+    'ETH',
+    'Wrapped Ether'
+  ),
+  [ConnectedChainId.BSC]: new Token(
+    ConnectedChainId.BSC,
+    '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+    18,
+    'BNB',
+    'Wrapped BNB'
+  ),
+  [ConnectedChainId.POLYGON]: new Token(
+    ConnectedChainId.POLYGON,
+    '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+    18,
+    'POL',
+    'Wrapped POL'
+  ),
+  [ConnectedChainId.BSCTEST]: new Token(
+    ConnectedChainId.BSCTEST,
+    '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
+    18,
+    'BNB',
+    'Wrapped BNB'
+  ),
+  [ConnectedChainId.BASETEST]: new Token(
+    ConnectedChainId.BASETEST,
+    '0x4200000000000000000000000000000000000006',
+    18,
+    'ETH',
+    'Wrapped Ether'
+  )
 }

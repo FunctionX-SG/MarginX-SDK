@@ -1,7 +1,7 @@
 import invariant from 'tiny-invariant'
 import { Currency } from './currency'
 import { Token } from './token'
-import { ChainId } from '../constants'
+import { ChainId, ConnectedChainId } from '../constants'
 
 /**
  * A currency is any fungible financial instrument on Ethereum, including Ether and all ERC20 tokens.
@@ -12,7 +12,7 @@ export abstract class BaseCurrency {
   public abstract readonly isEther: boolean
   public abstract readonly isToken: boolean
 
-  public readonly chainId: ChainId
+  public readonly chainId: ChainId | ConnectedChainId
   public readonly decimals: number
   public readonly symbol?: string
   public readonly name?: string
@@ -24,7 +24,7 @@ export abstract class BaseCurrency {
    * @param symbol symbol of the currency
    * @param name of the currency
    */
-  protected constructor(chainId: ChainId, decimals: number, symbol?: string, name?: string) {
+  protected constructor(chainId: ChainId | ConnectedChainId, decimals: number, symbol?: string, name?: string) {
     invariant(Number.isSafeInteger(chainId), 'CHAIN_ID')
     invariant(decimals >= 0 && decimals < 255 && Number.isInteger(decimals), 'DECIMALS')
 
